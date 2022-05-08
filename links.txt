@@ -1,0 +1,11 @@
+Asset Store Packages
+https://assetstore.unity.com/packages/2d/environments/2d-space-kit-27662#description
+https://assetstore.unity.com/packages/audio/sound-fx/weapons/free-laser-weapons-214929#content
+https://assetstore.unity.com/packages/audio/music/free-music-tracks-for-games-156413#publisher
+
+Freesound.org:
+https://freesound.org/people/Mozfoo/sounds/436871/
+https://freesound.org/people/MostyXS/sounds/512815/
+
+Kurt Decker Starcastle algorithm
+https://gist.github.com/kurtdekker/efceb3fa007613be5494e51b4f6800c5
