@@ -1,43 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShip : MonoBehaviour
+public class PlayerShip : MonoBehaviour, IDamageable
 {
     [SerializeField] float _speed = 30f;
     [SerializeField] float _rotationSpeed = 30f;
+    [SerializeField] GameObject _explosionPrefab = null;
+    [SerializeField] AudioClip _explosionSound = null;
 
     Rigidbody2D _rigidBody;
     Transform _transform;
     float _rotationAmount;
     float _thrust;
     float _angle;
-    Camera _mainCamera;
-    bool _swappingX, _swappingY;
-
-    private bool ShipInView
-    {
-        get
-        {
-            if (_transform.position.x < -18f ||
-                _transform.position.x > 18f ||
-                _transform.position.y < -14f ||
-                _transform.position.y > 14)
-            {
-                return false;
-            }
-            return true;
-
-        }
-                    
-    }
 
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _transform = transform;
-        _mainCamera = Camera.main;
     }
 
     void Update()
@@ -58,32 +37,6 @@ public class PlayerShip : MonoBehaviour
         if (!Mathf.Approximately(0f, _thrust))
         {
             _rigidBody.AddForce(transform.up * _thrust * Time.fixedDeltaTime);
-        }
-
-        ScreenWrap();
-    }
-
-    private void ScreenWrap()
-    {
-        if (ShipInView)
-        {
-            _swappingX = false;
-            _swappingY = false;
-            return;
-        }
-        if (_mainCamera == null) return;
-        if (_swappingX && _swappingY) return;
-
-        Vector3 viewportPosition = _mainCamera.WorldToViewportPoint(_transform.position);
-        if (!_swappingX && (viewportPosition.x > 1 || viewportPosition.x < 0))
-        {
-            _transform.position = new Vector3(_transform.position.x * -1, _transform.position.y, _transform.position.z);
-            _swappingX = true;
-        }
-        if (!_swappingY && (viewportPosition.y > 1 || viewportPosition.y < 0))
-        {
-            _transform.position = new Vector3(_transform.position.x, _transform.position.y * -1, _transform.position.z);
-            _swappingY = true;
         }
     }
 
@@ -115,5 +68,12 @@ public class PlayerShip : MonoBehaviour
         {
             _rotationAmount = 0;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        SoundManager.Instance.PlaySoundEffect(_explosionSound);
+        Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
