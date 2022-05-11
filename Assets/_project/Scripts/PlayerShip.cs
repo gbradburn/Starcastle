@@ -6,6 +6,7 @@ public class PlayerShip : MonoBehaviour, IDamageable
     [SerializeField] float _rotationSpeed = 30f;
     [SerializeField] GameObject _explosionPrefab = null;
     [SerializeField] AudioClip _explosionSound = null;
+    [SerializeField] GameObject _engineExhaust = null;
 
     Rigidbody2D _rigidBody;
     Transform _transform;
@@ -38,6 +39,11 @@ public class PlayerShip : MonoBehaviour, IDamageable
         {
             _rigidBody.AddForce(transform.up * _thrust * Time.fixedDeltaTime);
         }
+    }
+
+    private void LateUpdate()
+    {
+        _engineExhaust.SetActive(_thrust > 0f);
     }
 
     private void GetThrust()
