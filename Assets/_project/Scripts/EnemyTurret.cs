@@ -38,6 +38,7 @@ public class EnemyTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying) return;
         Vector3 vectorToTarget = _target.position - transform.position;
         float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90f;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);

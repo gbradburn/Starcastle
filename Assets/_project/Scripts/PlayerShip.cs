@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerShip : MonoBehaviour, IDamageable
@@ -20,8 +21,33 @@ public class PlayerShip : MonoBehaviour, IDamageable
         _transform = transform;
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.GameStateChanged.AddListener(OnGameStateChanged);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.GameStateChanged.RemoveListener(OnGameStateChanged);
+    }
+
+    private void OnGameStateChanged(GameManager.GameStates gameState)
+    {
+        if (gameState == GameManager.GameStates.StarcastleDestroyed)
+        {
+            _rigidBody.velocity = Vector2.zero;
+            _rigidBody.angularVelocity = 0f;
+        }
+    }
+
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+        {
+            _thrust = 0f;
+            _rotationAmount = 0f;
+            return;
+        }
         GetRotation();
         GetThrust();
     }
@@ -80,6 +106,6 @@ public class PlayerShip : MonoBehaviour, IDamageable
     {
         SoundManager.Instance.PlaySoundEffect(_explosionSound);
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        GameManager.Instance.PlayerShipDestroyed();
     }
 }

@@ -1,5 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1739853990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1739853991}
+  - component: {fileID: 1739853992}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1739853991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739853990}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141391118295731804}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1739853992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739853990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e76ce62346f05842924724038b11e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ringDefinitions:
+  - Name: Ring 1
+    Radius: 3
+    Segments: 10
+    RingColor: {r: 1, g: 0, b: 0, a: 1}
+  - Name: Ring 2
+    Radius: 4
+    Segments: 12
+    RingColor: {r: 0.12528642, g: 1, b: 0.0141509175, a: 1}
+  - Name: Ring 3
+    Radius: 5
+    Segments: 16
+    RingColor: {r: 0.9810126, g: 1, b: 0, a: 1}
+  _segmentPrefab: {fileID: 6017616455203984678, guid: 5b4de62165d9bf14e8439d4d5cb921e4, type: 3}
+  _overlap: 0.1
+  _thickness: 0.05
+  _height: 0.5
+  _rateOfRotationBase: 50
+  _extraRotation: 15
 --- !u!1 &2141391116869313387
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,11 +414,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07755859e0e801843b5015573f9e1e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateSpeed: 0.6
+  _rotateSpeed: 2
   _initialDelay: 5
   _shootForce: 1000
-  _projectilePrefab: {fileID: 0}
-  _fireSound: {fileID: 0}
+  _projectilePrefab: {fileID: 8324696408790984761, guid: cade1410adb56a0478ea3a86d1397496, type: 3}
+  _fireSound: {fileID: 8300000, guid: 18d6a007b013c9d4ebf7f7c44e1e5f06, type: 3}
+  _muzzle: {fileID: 4040412609828830943}
 --- !u!1 &2141391118078370679
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +626,7 @@ Transform:
   - {fileID: 2141391118078370678}
   - {fileID: 2141391116869313386}
   - {fileID: 2141391118204517120}
+  - {fileID: 1739853991}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -645,6 +710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5009ae02d4e3214459bb2dbb4c916e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explosionPrefab: {fileID: 100002, guid: cafecd3fc3b761c45bb1553f35cf5c96, type: 3}
+  _explosionSound: {fileID: 8300000, guid: 93464cf7a0243f24a882ca3fd99d9458, type: 3}
 --- !u!82 &147756381
 AudioSource:
   m_ObjectHideFlags: 0

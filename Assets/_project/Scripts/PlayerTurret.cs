@@ -36,6 +36,7 @@ public class PlayerTurret : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying) return;
         if (CanFire && Input.GetKey(KeyCode.M))
         {
             FireProjectile();

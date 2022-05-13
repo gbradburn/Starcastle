@@ -1,16 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Starcastle : MonoBehaviour
+public class Starcastle : MonoBehaviour, IDamageable
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] GameObject _explosionPrefab;
+    [SerializeField] AudioClip _explosionSound;
+
+    private void DestroyStarCastle()
     {
-        Debug.Log($"Starcastle hit by {collision.collider.name}");
+        Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        SoundManager.Instance.PlaySoundEffect(_explosionSound);
+        Destroy(gameObject);
+        GameManager.Instance.StarcastleDestroyed();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void TakeDamage(int damage)
     {
-        Debug.Log($"Starcastle triggered by {collision.name}");
+        DestroyStarCastle();
     }
 }
