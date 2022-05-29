@@ -37,6 +37,7 @@ public class PlayerShip : MonoBehaviour, IDamageable
         {
             _rigidBody.velocity = Vector2.zero;
             _rigidBody.angularVelocity = 0f;
+            gameObject.SetActive(false);
         }
     }
 
@@ -107,5 +108,6 @@ public class PlayerShip : MonoBehaviour, IDamageable
         SoundManager.Instance.PlaySoundEffect(_explosionSound);
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         GameManager.Instance.PlayerShipDestroyed();
+        gameObject.SetActive(false);
     }
 }

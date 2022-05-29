@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyTurret : MonoBehaviour
 {
-    Transform _target;
     [SerializeField] [Range(0, 3f)] float _rotateSpeed = 0.5f;
     [SerializeField] [Range(0, 5f)] float _initialDelay = 5f;
     [SerializeField] float _shootForce = 1000f;
@@ -14,6 +13,19 @@ public class EnemyTurret : MonoBehaviour
     [SerializeField] Transform _muzzle;
 
     float _coolDown;
+    Transform _target;
+
+    private Transform Target
+    {
+        get
+        {
+            if (_target == null)
+            {
+                _target = FindObjectOfType<PlayerShip>(true)?.transform;
+            }
+            return _target;
+        }
+    }
 
     bool CanFire
     {
@@ -24,12 +36,6 @@ public class EnemyTurret : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _target = FindObjectOfType<PlayerShip>(true).transform;
-    }
-
     private void OnEnable()
     {
         _coolDown = _initialDelay;
@@ -38,8 +44,13 @@ public class EnemyTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.IsPlaying) return;
-        Vector3 vectorToTarget = _target.position - transform.position;
+        if (!GameManager.Instance.IsPlaying || Target == null)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+            _coolDown = _initialDelay;
+            return;
+        }
+        Vector3 vectorToTarget = Target.position - transform.position;
         float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90f;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotateSpeed);

@@ -4,6 +4,7 @@ public class Starcastle : MonoBehaviour, IDamageable
 {
     [SerializeField] GameObject _explosionPrefab;
     [SerializeField] AudioClip _explosionSound;
+    [SerializeField] int _points = 100;
 
     private void DestroyStarCastle()
     {
@@ -15,6 +16,8 @@ public class Starcastle : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        int points = _points + (GameManager.Instance.LevelManager.Level * _points);
+        ScoreManager.Instance.AddScore(points);
         DestroyStarCastle();
     }
 }

@@ -63,6 +63,99 @@ MonoBehaviour:
   _height: 0.5
   _rateOfRotationBase: 50
   _extraRotation: 15
+--- !u!1 &693566946119880867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9047984647603270977}
+  m_Layer: 6
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9047984647603270977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693566946119880867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.173, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141391117638129576}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1593282733118189573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9174312636318421378}
+  m_Layer: 6
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9174312636318421378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593282733118189573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141391118078370678}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1614784445489661436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6461787893491429492}
+  m_Layer: 6
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6461787893491429492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614784445489661436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.187, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141391118204517120}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141391116869313387
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,6 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141391116869313386}
   - component: {fileID: 2141391116869313397}
+  - component: {fileID: 3636897971839885585}
   m_Layer: 6
   m_Name: OutterTurret
   m_TagString: Untagged
@@ -91,7 +185,8 @@ Transform:
   m_LocalPosition: {x: 1.401, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8681440946518226173}
   m_Father: {fileID: 2141391118295731804}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
@@ -147,6 +242,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3636897971839885585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141391116869313387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ed55285e297f44bbc3ac9be29f2a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzle: {fileID: 8681440946518226173}
+  _fireDelay: 3
+  _missilePrefab: {fileID: 4826228138124261747, guid: ae5cbb38893b60940b86398bc6fcab6b, type: 3}
+  _launchSound: {fileID: 8300000, guid: 7a15fc41b1d885940a382f983eb3f01b, type: 3}
 --- !u!1 &2141391117638129577
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141391117638129576}
   - component: {fileID: 2141391117638129579}
+  - component: {fileID: 5791844778247623474}
   m_Layer: 6
   m_Name: OutterTurret
   m_TagString: Untagged
@@ -175,7 +287,8 @@ Transform:
   m_LocalPosition: {x: -0.0013333334, y: 1.3353333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9047984647603270977}
   m_Father: {fileID: 2141391118295731804}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,6 +344,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5791844778247623474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141391117638129577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ed55285e297f44bbc3ac9be29f2a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzle: {fileID: 9047984647603270977}
+  _fireDelay: 3
+  _missilePrefab: {fileID: 4826228138124261747, guid: ae5cbb38893b60940b86398bc6fcab6b, type: 3}
+  _launchSound: {fileID: 8300000, guid: 7a15fc41b1d885940a382f983eb3f01b, type: 3}
 --- !u!1 &2141391117684936800
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141391118078370678}
   - component: {fileID: 2141391118078370673}
+  - component: {fileID: 6615588419641760269}
   m_Layer: 6
   m_Name: OutterTurret
   m_TagString: Untagged
@@ -448,7 +578,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.335333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9174312636318421378}
   m_Father: {fileID: 2141391118295731804}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -504,6 +635,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6615588419641760269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141391118078370679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ed55285e297f44bbc3ac9be29f2a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzle: {fileID: 9174312636318421378}
+  _fireDelay: 3
+  _missilePrefab: {fileID: 4826228138124261747, guid: ae5cbb38893b60940b86398bc6fcab6b, type: 3}
+  _launchSound: {fileID: 8300000, guid: 7a15fc41b1d885940a382f983eb3f01b, type: 3}
 --- !u!1 &2141391118204517121
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141391118204517120}
   - component: {fileID: 2141391118204517123}
+  - component: {fileID: 1072083028446134582}
   m_Layer: 6
   m_Name: OutterTurret
   m_TagString: Untagged
@@ -532,7 +680,8 @@ Transform:
   m_LocalPosition: {x: -1.401, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6461787893491429492}
   m_Father: {fileID: 2141391118295731804}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -588,6 +737,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1072083028446134582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141391118204517121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ed55285e297f44bbc3ac9be29f2a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzle: {fileID: 6461787893491429492}
+  _fireDelay: 3
+  _missilePrefab: {fileID: 4826228138124261747, guid: ae5cbb38893b60940b86398bc6fcab6b, type: 3}
+  _launchSound: {fileID: 8300000, guid: 7a15fc41b1d885940a382f983eb3f01b, type: 3}
 --- !u!1 &2141391118295731805
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +988,37 @@ MonoBehaviour:
   _maxHealth: 1
   _explosionPrefab: {fileID: 100002, guid: cafecd3fc3b761c45bb1553f35cf5c96, type: 3}
   _explosionSound: {fileID: 8300000, guid: 93464cf7a0243f24a882ca3fd99d9458, type: 3}
+--- !u!1 &3124197165046517170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8681440946518226173}
+  m_Layer: 6
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8681440946518226173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124197165046517170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.187, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141391116869313386}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7041045092550169370
 GameObject:
   m_ObjectHideFlags: 0

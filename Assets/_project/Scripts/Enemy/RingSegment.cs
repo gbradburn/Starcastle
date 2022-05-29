@@ -6,8 +6,7 @@ public class RingSegment : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        // tell game manager to add points
-        Debug.Log($"Ring segment took {damage} damage.");
+        ScoreManager.Instance.AddScore(_points);
         gameObject.SetActive(false);
     }
 

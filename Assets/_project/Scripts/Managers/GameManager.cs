@@ -35,6 +35,18 @@ public class GameManager : MonoBehaviour
     }
     public bool IsPlaying => GameState == GameStates.Playing;
     public int Lives { get; private set; }
+    private LevelManager _levelManager;
+    public LevelManager LevelManager
+    {
+        get
+        {
+            if (_levelManager == null)
+            {
+                _levelManager = FindObjectOfType<LevelManager>();
+            }
+            return _levelManager;
+        }
+    }
 
     private void Awake()
     {
@@ -50,13 +62,13 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         Lives = 3;
+        ScoreManager.Instance.ResetScore();
         GetReady();
     }
 
     public void GetReady()
     {
         MusicManager.Instance.PlayMusic(MusicManager.MusicTracks.None);
-        SpawnPlayerShip();
         SpawnStarcastle();
         GameState = GameStates.GetReady;
     }
@@ -64,7 +76,8 @@ public class GameManager : MonoBehaviour
 
     public void StartPlaying()
     {
-        MusicManager.Instance.PlayMusic(MusicManager.MusicTracks.PlayMusic);
+        MusicManager.Instance.PlayMusic(MusicManager.MusicTracks.PlayMusic); 
+        SpawnPlayerShip();
         GameState = GameStates.Playing;
     }
 
@@ -78,6 +91,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            ScoreManager.Instance.SaveHighScore();
             Invoke(nameof(GameOver), 3f);
         }
     }

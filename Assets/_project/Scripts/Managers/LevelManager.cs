@@ -1,13 +1,19 @@
-using System;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public int Level { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
         GameManager.Instance.GameStateChanged.AddListener(OnGameStateChanged);
         GameManager.Instance.RestartLevel();
+    }
+
+    private void OnEnable()
+    {
+        Level = 0;
     }
 
     private void OnGameStateChanged(GameManager.GameStates gameState)
@@ -16,6 +22,9 @@ public class LevelManager : MonoBehaviour
         {
             case GameManager.GameStates.GetReady:
                 StartCountdown();
+                break;
+            case GameManager.GameStates.StarcastleDestroyed:
+                ++Level;
                 break;
             default:
                 break;
